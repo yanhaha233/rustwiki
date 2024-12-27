@@ -50,3 +50,38 @@ pub fn literals_and_operators() {
 
     println!("One million is written as {}", 1_000_000u32);
 }
+
+fn reverse(pair: (i32, bool)) -> (bool, i32) {
+    let (integer, boolean) = pair;
+    (boolean, integer)
+}
+
+#[derive(Debug)]
+struct Matrix(f32, f32, f32, f32);
+
+fn transpose(matrix: Matrix) -> Matrix {
+    let transpose = matrix;
+    Matrix(transpose.0, transpose.2, transpose.1, transpose.3)
+}
+
+pub fn tuples() {
+    let long_tuple = (1u8, 2u16, 3u32, 'a', true);
+    println!("{}", long_tuple.0);
+
+    let tuple_of_tuples = ((1u8, 2u16, 3u32), (4u64, -1i8), -2i32);
+    println!("{:?}", tuple_of_tuples);
+    // 很长的元组不能打印
+
+    let pair = (1, true);
+    println!("{:?}", pair);
+    println!("the reversed pair is {:?}", reverse(pair));
+
+    println!("one element tuple: {:?}", (5u32,));
+    println!("just an integer:{:?}", (5u32));
+    // 单个元素的元组需要逗号结尾以用来作为区分
+
+    let tuple = (1, "hello", 4.5, true);
+    let (a, b, c, d) = tuple;
+    println!("{:?},{:?},{:?},{:?}", a, b, c, d);
+    // 元组可以被解构
+}
